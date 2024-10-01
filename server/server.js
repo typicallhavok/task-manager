@@ -232,6 +232,7 @@ app.prepare().then(() => {
         });
     });
 
+    //server.get("/api/tasks/summary",verifyToken, async (req, res) For a secure api
     server.get("/api/tasks/summary", async (req, res) => {
         try {
             const filters = {

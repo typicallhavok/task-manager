@@ -6,9 +6,9 @@ const Index = () => {
     return (
         <div className="flex h-[calc(100vh-64px)] w-full bg-[var(--background)]">
             <div className="w-1/2 flex items-center justify-center bg-[var(--accent)] relative">
-                <span className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[var(--foreground)] text-[var(--primary-foreground)] text-sm inline-block p-1 rounded-md mb-2">
+                {/* <span className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[var(--foreground)] text-[var(--primary-foreground)] text-sm inline-block p-1 rounded-md mb-2">
                     Enterprise
-                </span>
+                </span> */}
                 <div className="text-center">
                     <h1 className="text-4xl font-bold text-[var(--card-foreground)]">
                         For{" "}
