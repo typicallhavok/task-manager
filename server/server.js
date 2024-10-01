@@ -6,12 +6,13 @@ const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const { generateTaskSummary } = require("./mongo");
+require('dotenv').config();
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const JWT_SECRET = "taskerSecretKey";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 app.prepare().then(() => {
     const server = express();
