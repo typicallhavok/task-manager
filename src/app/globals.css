@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #d2d3d4;
+    --foreground: #263238;
+    --primary: #607d8b;
+    --primary-foreground: #eceff1;
+    --secondary: #cfd8dc;
+    --secondary-foreground: #263238;
+    --card: #a9b6bb;
+    --card-foreground: #263238;
+    --muted: #566268;
+    --muted-foreground: #eceff1;
+    --accent: #bbbdbe;
+    --accent-foreground: #eceff1;
+    --border: #b0bec5;
+    --input: #cfd8dc;
+    --ring: #607d8b;
+}
+
+.dark {
+    --background: #1a2225;
+    --foreground: #e7e7e7;
+    --primary: #92aebd;
+    --primary-foreground: #141a1d;
+    --secondary: #4f6a77;
+    --secondary-foreground: #eceff1;
+    --card: #37474f;
+    --card-foreground: #eceff1;
+    --muted: #57717e;
+    --muted-foreground: #b0bec5;
+    --accent: #455a64;
+    --accent-foreground: #eceff1;
+    --border: #546e7a;
+    --input: #596970;
+    --ring: #78909c;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: var(--card);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    margin-bottom: 2rem;
+}
+
+.submit-div {
+    color: var(--foreground);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    font-size: 0.95rem;
+    width: 95%;
+}
+
+.submit-button {
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-foreground);
+    color: var(--primary);
+}
+
+.submit-div a {
+    color: var(--foreground);
+    text-decoration: none;
+    margin-right: 5.1rem;
+}
+
+.submit-div a:hover {
+    text-decoration: underline;
+}
+
+.input {
+    width: 20rem;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--input);
+    color: var(--foreground);
+}
+
+.input:focus {
+    outline: 1px solid var(--background);
+}
+
+.float-label {
+    opacity: 0;
+    position: absolute;
+    left: 3.3rem;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    transform: translateY(0);
+}
+
+.floating-label .input:focus + .float-label,
+.floating-label .input:not(:placeholder-shown) + .float-label {
+    border-radius: 3px;
+    padding: 4px 4px;
+    opacity: 100;
+    background: linear-gradient(to bottom, var(--card) 20%, var(--input) 70%);
+    font-size: 0.75rem;
+    color: var(--foreground);
+    transform: translateY(-1.1rem);
+}
+
+.floating-label .input:focus::placeholder {
+    color: var(--input);
+    transition: all 0.3s ease;
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    z-index: 9999;
+}
+
+.loading::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--foreground);
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert strong {
+    font-weight: bold;
+}
+
+.content-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 64px);
+    font-size: 1.2rem;
+    color: var(--foreground);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
